@@ -4,9 +4,9 @@ using System.Linq;
 
 namespace CopaDeEquipes.Domain
 {
-    public class SemiFinais
+    internal class SemiFinais
     {
-        private IEnumerable <Partida> _partidas = new List<Partida>(2);
+        private IEnumerable <Partida> _partidas = new List<Partida>(2);        
 
         public SemiFinais(IEnumerable<Partida> partidas)
         {

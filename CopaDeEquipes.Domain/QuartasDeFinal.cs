@@ -3,11 +3,10 @@ using System.Linq;
 
 namespace CopaDeEquipes.Domain
 {
-    public class QuartasDeFinal
+    internal sealed class QuartasDeFinal
     {
         private const int NUMERO_PARTIDAS = 4;
-
-        private IDictionary<int,Partida> _partidas = new Dictionary<int,Partida>(NUMERO_PARTIDAS);
+        private IDictionary<int,Partida> _partidas = new Dictionary<int,Partida>(NUMERO_PARTIDAS);        
 
         public QuartasDeFinal()
         {            

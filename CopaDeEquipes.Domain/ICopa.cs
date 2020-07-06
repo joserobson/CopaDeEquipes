@@ -2,7 +2,7 @@
 {
     public interface ICopa
     {
-        bool EhValida();
+        bool AtendeTodosOsCriterios();
 
         void Iniciar();
 

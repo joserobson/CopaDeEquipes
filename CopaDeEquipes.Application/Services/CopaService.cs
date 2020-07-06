@@ -15,9 +15,9 @@ namespace CopaDeEquipes.Application.Services
             var resultadoCopa = new ResultadoCopaAppModel();
 
             var equipes = EquipeMapper.ToEquipeDomain(equipesSelecionadas);
-            var copa = new Copa(equipes);
+            ICopa copa = Copa.Factory.NovaCopa(equipes);                              
 
-            if (copa.EhValida())
+            if (copa.AtendeTodosOsCriterios())
             {
                 copa.Iniciar();
 

@@ -4,26 +4,24 @@ using System.Linq;
 
 namespace CopaDeEquipes.Domain
 {
-    public class Copa
+    public sealed class Copa: ICopa
     {
         private const long NUM_MAXIMO_EQUIPES_PARTICIPANTES = 8;
 
         public Equipe EquipeCampea { get; private set; }
         public Equipe EquipeViceCampea { get; private set; }
 
-        private IEnumerable<Equipe> _equipesParticipantes;               
-        public QuartasDeFinal QuartasDeFinal { get; private set; }
-        public SemiFinais SemiFinais { get; private set; }
-        public Final Final { get; private set; }
+        private readonly IEnumerable<Equipe> _equipesParticipantes;
+        private QuartasDeFinal _quartasDeFinal;
+        private SemiFinais _semiFinais;
+        private Final _final;
 
-        public Copa(IEnumerable<Equipe> equipesParticipantes)
+        private Copa(IEnumerable<Equipe> equipesParticipantes)
         {
-            this._equipesParticipantes = equipesParticipantes;
-            QuartasDeFinal = new QuartasDeFinal();
+            this._equipesParticipantes = equipesParticipantes;            
         }
 
-
-        public bool EhValida()
+        public bool AtendeTodosOsCriterios()
         {
             if (this._equipesParticipantes == null ||
                 this._equipesParticipantes.Count() < NUM_MAXIMO_EQUIPES_PARTICIPANTES ||
@@ -41,24 +39,33 @@ namespace CopaDeEquipes.Domain
             return true;
         }
 
-
         public void Iniciar()
-        {            
-            QuartasDeFinal.SortearPartidas(this._equipesParticipantes);
+        {
+            _quartasDeFinal = new QuartasDeFinal();
 
-            QuartasDeFinal.JogarPartidas();
+            _quartasDeFinal.SortearPartidas(this._equipesParticipantes);
 
-            SemiFinais = QuartasDeFinal.ObterSemiFinais();
+            _quartasDeFinal.JogarPartidas();
 
-            SemiFinais.JogarPartidas();
+            _semiFinais = _quartasDeFinal.ObterSemiFinais();
 
-            Final = SemiFinais.ObterFinal();
+            _semiFinais.JogarPartidas();
 
-            Final.JogarPartida();
+            _final = _semiFinais.ObterFinal();
 
-            this.EquipeCampea = Final.EquipeCampea();
-            this.EquipeViceCampea = Final.EquipeViceCampea();
+            _final.JogarPartida();
+
+            this.EquipeCampea = _final.EquipeCampea();
+            this.EquipeViceCampea = _final.EquipeViceCampea();
         }
-                                
+
+        public static class Factory
+        {
+            public static ICopa NovaCopa(IEnumerable<Equipe> equipesParticipantes)
+            {
+                return new Copa(equipesParticipantes);
+            }
+        }
+
     }
 }
