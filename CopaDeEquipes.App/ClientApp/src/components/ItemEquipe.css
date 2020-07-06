@@ -1,0 +1,15 @@
+﻿
+#itemEquipe .table > tbody > tr > td {
+    /*vertical-align: middle;
+    text-align: center;*/
+    border: 0px;
+}
+
+
+#itemEquipe .table > tbody > tr > td > input {
+    transform: scale(2.0);
+}
+
+#itemEquipe .table{
+    background-color:white;
+}

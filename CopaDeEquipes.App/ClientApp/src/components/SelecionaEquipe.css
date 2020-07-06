@@ -1,0 +1,9 @@
+﻿
+.selecionados{
+    color:white;
+    padding-bottom:10px;
+}
+
+.selecionados > div > button {
+    background-color: black;
+}

@@ -1,0 +1,13 @@
+﻿
+#resultadoCopa .table > tbody > tr > td {
+    vertical-align: middle;
+    text-align: left;        
+}
+
+#resultadoCopa .table > tbody > tr {
+    border-bottom: 10px solid darkgray;
+}
+
+#resultadoCopa .table {
+    background-color: white;
+}
