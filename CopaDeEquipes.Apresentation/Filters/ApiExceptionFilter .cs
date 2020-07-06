@@ -1,10 +1,10 @@
-﻿using CopaDeEquipes.App.Exceptions;
+﻿using CopaDeEquipes.Apresentation.Exceptions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using System;
 
-namespace CopaDeEquipes.App.Filters
+namespace CopaDeEquipes.Apresentation.Filters
 {
     public class ApiExceptionFilter: ExceptionFilterAttribute
     {

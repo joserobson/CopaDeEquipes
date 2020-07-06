@@ -1,15 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using CopaDeEquipes.App.Filters;
-using CopaDeEquipes.App.Models;
 using CopaDeEquipes.Application.Models;
 using CopaDeEquipes.Application.Services;
+using CopaDeEquipes.Apresentation.Dtos;
+using CopaDeEquipes.Apresentation.Filters;
 using Microsoft.AspNetCore.Mvc;
 
-namespace CopaDeEquipes.App.Controllers
-{
-    //[Produces("application/json")]
+namespace CopaDeEquipes.Apresentation.Controllers
+{    
     [ApiExceptionFilter]
     [Route("api/[controller]")]
     public class CopaController : Controller
@@ -28,18 +26,10 @@ namespace CopaDeEquipes.App.Controllers
         }
 
         [HttpPost("[action]")]
-        public IActionResult GerarCopa([FromBody] PostGerarCopaModel postModel)
+        public IActionResult GerarCopa([FromBody] PostGerarCopaDto postDto)
         {
-            ResultadoCopaAppModel resultado;
-            try
-            {                
-                resultado = _copaService.GerarCopa(postModel.Equipes);
-
-            }catch(Exception error)
-            {
-                throw error;
-            }
-
+            ResultadoCopaAppModel resultado;                            
+            resultado = _copaService.GerarCopa(postDto.Equipes);            
             return Ok(resultado);
         }        
     }

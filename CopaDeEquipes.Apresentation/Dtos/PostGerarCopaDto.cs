@@ -1,9 +1,9 @@
 ﻿using CopaDeEquipes.Application.Models;
 using System.Collections.Generic;
 
-namespace CopaDeEquipes.App.Models
+namespace CopaDeEquipes.Apresentation.Dtos
 {
-    public class PostGerarCopaModel
+    public class PostGerarCopaDto
     {
         public List<EquipeAppModel> Equipes { get; set; }
 

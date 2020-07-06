@@ -1,7 +1,7 @@
-﻿using Microsoft.AspNetCore;
+using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 
-namespace CopaDeEquipes.Api
+namespace CopaDeEquipes.Apresentation
 {
     public class Program
     {

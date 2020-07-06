@@ -1,5 +1,5 @@
-using CopaDeEquipes.App.Filters;
 using CopaDeEquipes.Application.Services;
+using CopaDeEquipes.Apresentation.Filters;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace CopaDeEquipes.App
+namespace CopaDeEquipes.Apresentation
 {
     public class Startup
     {

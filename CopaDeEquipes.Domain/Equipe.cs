@@ -12,6 +12,10 @@ namespace CopaDeEquipes.Domain
 
         public long Gols { get; set; }
 
+        public Equipe()
+        {
+
+        }
 
         public Equipe(Guid id, string nome, string sigla, long gols)
         {

@@ -1,4 +1,4 @@
-﻿namespace CopaDeEquipes.App.Exceptions
+﻿namespace CopaDeEquipes.Apresentation.Exceptions
 {
     public class ApiError
     {

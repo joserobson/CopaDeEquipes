@@ -30,6 +30,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="Dtos\EquipeModel.cs" />
+    <Compile Remove="Dtos\ResultadoFinalModel.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\CopaDeEquipes.Application\CopaDeEquipes.Application.csproj" />
   </ItemGroup>
 
